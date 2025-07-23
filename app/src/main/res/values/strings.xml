@@ -22,4 +22,9 @@
     <string name="name">Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="contact_name">Contact name</string>
+    <string name="bio">Bio</string>
+    <string name="username">Username</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="user_id">User ID</string>
+    <string name="save_changes">Save Changes</string>
 </resources>

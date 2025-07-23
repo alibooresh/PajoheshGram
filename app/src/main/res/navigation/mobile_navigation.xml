@@ -40,7 +40,17 @@
         android:id="@+id/nav_my_profile"
         android:name="com.example.pajoheshgram.ui.profile.ProfileFragment"
         android:label="@string/menu_my_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.pajoheshgram.ui.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 
 </navigation>

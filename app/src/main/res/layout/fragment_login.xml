@@ -10,25 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/login_h_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="Login"
             android:textColor="#000"
-            android:textSize="24sp"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/login_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="Please Enter Your Country Code And Phone Number"
             android:textColor="#000"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="16sp" />
 
 
         <Spinner
@@ -41,17 +42,17 @@
             android:id="@+id/input_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:hint="Phone Number"
-            android:inputType="phone"
-            android:layout_marginBottom="16dp" />
+            android:inputType="phone" />
 
         <CheckBox
             android:id="@+id/check_sync_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sync Contacts"
             android:layout_gravity="start"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="32dp"
+            android:text="Sync Contacts" />
 
     </LinearLayout>
 
@@ -59,8 +60,8 @@
         android:id="@+id/fab_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="24dp"
         android:contentDescription="Next"
         android:src="@android:drawable/ic_media_next" />

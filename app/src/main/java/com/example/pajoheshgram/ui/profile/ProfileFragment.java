@@ -4,58 +4,43 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.pajoheshgram.R;
+import com.example.pajoheshgram.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
+    private FragmentProfileBinding binding;
 
-    private TextView textName, textStatus, textPhone, textBio, textUsername, textDob, textUserId;
-    private ImageView profileImage;
-    private ImageButton btnEdit;
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
 
-        textName = view.findViewById(R.id.text_name);
-        textStatus = view.findViewById(R.id.text_status);
-        textPhone = view.findViewById(R.id.text_phone);
-        textBio = view.findViewById(R.id.text_bio);
-        textUsername = view.findViewById(R.id.text_username);
-        textDob = view.findViewById(R.id.text_dob);
-        textUserId = view.findViewById(R.id.text_user_id);
-        profileImage = view.findViewById(R.id.profile_image);
-        btnEdit = view.findViewById(R.id.btn_edit_profile);
+        Profile profile = getDummyProfile(); // Mock data
 
-        loadMockUser();
+        binding.textName.setText(profile.getName());
+        binding.textStatus.setText(profile.getStatus());
+        binding.profileImage.setImageResource(profile.getAvatarResId());
 
-        btnEdit.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Edit profile clicked", Toast.LENGTH_SHORT).show();
+        binding.textPhone.setText(profile.getPhoneNumber());
+        binding.textBio.setText(profile.getBio());
+        binding.textUsername.setText(profile.getUsername());
+        binding.textDob.setText(profile.getBirthday());
+        binding.textUserId.setText(profile.getUserId());
 
+        binding.btnEditProfile.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_profileFragment_to_editProfileFragment);
         });
 
-        return view;
+        return binding.getRoot();
     }
 
-    private void loadMockUser() {
-        textName.setText("Ali Developer");
-        textStatus.setText("Last seen recently");
-        textPhone.setText("+49 123 456789");
-        textBio.setText("I love building apps with Java");
-        textUsername.setText("@fakeali");
-        textDob.setText("1999-06-21");
-        textUserId.setText("123456789");
-        profileImage.setImageResource(R.drawable.avatar_ali);
+    private Profile getDummyProfile() {
+        return new Profile(R.drawable.avatar_ali, "Ali Booresh", "Last seen recently",
+                "+98 912 000 0000", "Java Developer", "ali_dev", "1378/01/13", "ID123456");
     }
 }
-
