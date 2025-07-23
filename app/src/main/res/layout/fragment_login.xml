@@ -14,10 +14,18 @@
         android:gravity="center_horizontal">
 
         <TextView
+            android:id="@+id/login_h_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"/>
+        <TextView
             android:id="@+id/login_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="لطفاً شماره تلفن و کشور خود را وارد کنید"
+            android:text="Please Enter Your Country Code And Phone Number"
             android:textColor="#000"
             android:textSize="16sp"
             android:layout_marginBottom="16dp"/>
