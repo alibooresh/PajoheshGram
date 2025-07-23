@@ -18,4 +18,16 @@
         android:label="Chats"
         tools:layout="@layout/fragment_chats" />
 
+    <fragment
+        android:id="@+id/nav_add_account"
+        android:name="com.example.pajoheshgram.ui.login.LoginFragment"
+        android:label="Add Account"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/nav_verify_code"
+        android:name="com.example.pajoheshgram.ui.verify.VerifyCodeFragment"
+        android:label="Verify Code"
+        tools:layout="@layout/fragment_verify_code" />
+
 </navigation>
