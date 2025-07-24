@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/nav_chats"
-        android:name="com.example.pajoheshgram.ui.chats.ChatsFragment"
+        android:name="com.example.pajoheshgram.ui.chats.ChatListFragment"
         android:label="Chats"
         tools:layout="@layout/fragment_chats" />
 
