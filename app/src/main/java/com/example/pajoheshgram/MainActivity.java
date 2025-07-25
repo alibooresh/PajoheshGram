@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_new_group,
                 R.id.nav_my_profile,
                 R.id.nav_setting,
+                R.id.nav_pajohesh_gram_features,
                 R.id.nav_contacts)
                 .setOpenableLayout(drawer)
                 .build();

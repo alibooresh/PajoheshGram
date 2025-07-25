@@ -58,5 +58,11 @@
         android:label="Setting"
         tools:layout="@layout/fragment_settings" />
 
+    <fragment
+        android:id="@+id/nav_pajohesh_gram_features"
+        android:name="com.example.pajoheshgram.ui.feature.FeaturesFragment"
+        android:label="Features"
+        tools:layout="@layout/fragment_features" />
+
 
 </navigation>
