@@ -1,21 +1,130 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:padding="16dp">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.chats.ChatActivity">
 
-    <ImageView
-        android:id="@+id/image_chat_avatar"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/ic_avatar_placeholder"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/text_chat_title"
-        android:layout_width="wrap_content"
+    <!-- Toolbar سفارشی -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/chat_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="نام مخاطب"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"/>
-</LinearLayout>
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title=""
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back" />
+
+            <ImageView
+                android:id="@+id/chat_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_avatar_placeholder"
+                android:scaleType="centerCrop"
+                android:background="@drawable/avatar_circle" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/chat_contact_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نام مخاطب"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/chat_last_seen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="آخرین بازدید: دیروز"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/chat_call_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_call"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Voice Call" />
+
+            <ImageButton
+                android:id="@+id/chat_settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more_vert"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="More" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- لیست پیام‌ها -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="60dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+    <!-- کادر ارسال پیام -->
+    <LinearLayout
+        android:id="@+id/message_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="8dp"
+        android:elevation="4dp">
+
+        <EditText
+            android:id="@+id/message_input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="پیام خود را بنویسید..."
+            android:background="@null"
+            android:padding="8dp"
+            android:textColor="@android:color/black" />
+
+        <ImageButton
+            android:id="@+id/send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_send"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Send" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
