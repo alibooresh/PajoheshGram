@@ -43,13 +43,13 @@ public class VerifyCodeFragment extends Fragment {
             }
             Navigation.findNavController(v).navigate(R.id.nav_chats);
         });
-        fabVerify.setOnClickListener(v -> {
+        fabSignUp.setOnClickListener(v -> {
             String code = inputCode.getText().toString().trim();
             if (TextUtils.isEmpty(code) || code.length() < 5) {
                 Toast.makeText(getContext(), "Please enter the full 5-digit code", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Navigation.findNavController(v).navigate(R.id.nav_chats);
+            Navigation.findNavController(v).navigate(R.id.nav_signup);
         });
 
         return root;
